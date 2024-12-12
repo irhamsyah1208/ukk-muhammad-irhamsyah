@@ -52,7 +52,7 @@
         <section class="px-6 py-12 w-full relative">
             <p class="mx-auto max-w-80 mb-8">You are cordially invited to celebrate the sweet seventeen party of</p>
             <div class="mx-auto mb-4 w-full max-w-[26rem] h-[38rem] rounded-2xl overflow-hidden relative" data-aos="zoom-in" data-aos-duration="3000">
-                <img class="size-full object-cover" src="/no-image.webp" alt="" height="150" width="150">
+                <img class="size-full object-cover" src="/gallery-7.jpg" alt="" height="150" width="150">
                 <div class="p-6 absolute left-0 right-0 bottom-0 text-left">
                     <h2 class="text-2xl font-bold">AYA HUMAIRA DESTIANA</h2>
                     <p>Seventeen and grateful for every opportunity that comes my way.</p>
@@ -64,17 +64,17 @@
             <div class="mx-auto w-full max-w-[26rem]">
                 <div class="grid grid-cols-3 gap-2 mb-2">
                     <div class="aspect-square overflow-hidden">
-                        <img class="size-full object-cover" src="/no-image.webp" alt="" height="150" width="150">
+                        <img class="size-full object-cover" src="/gallery-3.jpg" alt="" height="150" width="150">
                     </div>
                     <div class="aspect-square overflow-hidden">
-                        <img class="size-full object-cover" src="/no-image.webp" alt="" height="150" width="150">
+                        <img class="size-full object-cover" src="/gallery-4.jpg" alt="" height="150" width="150">
                     </div>
                     <div class="aspect-square overflow-hidden">
-                        <img class="size-full object-cover" src="/no-image.webp" alt="" height="150" width="150">
+                        <img class="size-full object-cover" src="/gallery-8.jpg" alt="" height="150" width="150">
                     </div>
                 </div>
                 <div class="aspect-square overflow-hidden">
-                    <img class="size-full object-cover" src="/no-image.webp" alt="" height="150" width="150">
+                    <img class="size-full object-cover" src="/gallery-5.jpg" alt="" height="150" width="150">
                 </div>
             </div>
         </section>
@@ -118,16 +118,16 @@
                 <h2 class="font-latin text-4xl mb-4">Our Memories</h2>
                 <div class="grid grid-cols-2 gap-2 mb-2">
                     <div class="aspect-square overflow-hidden">
-                        <img class="size-full object-cover" src="/no-image.webp" alt="" height="150" width="150">
+                        <img class="size-full object-cover" src="/gallery-1.jpg" alt="" height="150" width="150">
                     </div>
                     <div class="aspect-square overflow-hidden">
-                        <img class="size-full object-cover" src="/no-image.webp" alt="" height="150" width="150">
+                        <img class="size-full object-cover" src="/gallery-2.jpg" alt="" height="150" width="150">
                     </div>
                     <div class="aspect-square overflow-hidden">
-                        <img class="size-full object-cover" src="/no-image.webp" alt="" height="150" width="150">
+                        <img class="size-full object-cover" src="/gallery-9.jpg" alt="" height="150" width="150">
                     </div>
                     <div class="aspect-square overflow-hidden">
-                        <img class="size-full object-cover" src="/no-image.webp" alt="" height="150" width="150">
+                        <img class="size-full object-cover" src="/gallery-6.jpg" alt="" height="150" width="150">
                     </div>
                 </div>
             </div>
@@ -140,8 +140,41 @@
         </section>
     </div>
     <!-- lagu start -->
-    
+    <audio src="https://assets.satumomen.com/musics/akon-be-with-you.mp3" id="music"></audio>
     <!-- lagu end -->
 </body>
+<script>
+    const tombolBuka = document.getElementById("btnOpen");
+    const isiUndangan = document.getElementById("invContent");
+    const lagu = document.getElementById("music");
+
+    tombolBuka.addEventListener("click",function() {
+        isiUndangan.classList.toggle("hidden");
+        lagu.play();
+    });
+
+    var countDownDate = new Date("jan 1, 2025 15:15:15").getTime();
+    var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance =  countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 24))/ (1000 * 60));
+        var minutes = Math.floor((distance % (1000 * 60))/ 1000);
+        var seconds = Math.floor((distance % 1000)/ 1000);
+
+        document.getElementById("hari").innerText = days;
+        document.getElementById("jam").innerText = hours;
+        document.getElementById("menit").innerText = minutes;
+        document.getElementById("detik").innerText = seconds;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("htungMundur").innerText = "Maad Acara Sudah Selesai";
+            document.getElementById("hitungMundur").classList.remove("grid");
+            document.getElementById("hitungMundur").classList.add("bg-red-500", "text-white", "rounded-lg", "p-2");
+        }
+        }, 1000);
+</script>
 
 </html>
